@@ -1,0 +1,77 @@
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import url('https://fonts.googleapis.com/css2?family=Caladea&display=swap');
+@import "_variables";
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Caladea', BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, 
+  Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  background-color: black;
+}
+
+header {
+  margin: 20px 0px;
+  font-size: 30px;
+  font-weight: bold;
+  color: white;
+  text-transform: uppercase;
+}
+
+nav {
+  width: 100%;
+  margin: 5px 0px;
+  select {
+    width: 300px;
+    font-size: 18px;
+    cursor: pointer;
+  }
+}
+
+section {
+  width: 100%;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+  grid-template-rows: repeat(auto-fit, 1fr);
+  background-color: black;
+  gap: 3px;
+  .item {
+    background-color: white;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    text-transform: uppercase;
+    .item__top {
+      display: flex;
+      justify-content: space-between;
+      font-weight: 600;
+    }
+    .auto__photo {
+      height: 200px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      img {
+        height: 180px;
+      }
+    }
+    .item__bottom {
+      display: flex;
+      justify-content: space-between;
+      a {
+        color: black;
+      }
+    }  
+    &:hover {
+      background-color: rgb(210, 240, 255);
+    }
+  }
+}
+

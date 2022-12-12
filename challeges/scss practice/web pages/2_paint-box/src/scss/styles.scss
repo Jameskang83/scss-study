@@ -1,0 +1,222 @@
+@import url('https://fonts.googleapis.com/css2?family=Caladea&family=Montserrat&display=swap');
+@import "_variables";
+@import "titles";
+
+* {
+  box-sizing: border-box;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  @extend %miniTitle;
+}
+
+li {
+  list-style: none;
+}
+
+body {
+  font-family: "Caladea";
+  padding-top: 70px;
+  & > *:not(.footer) {
+    padding: 0px 140px;
+  }
+}
+
+header {
+  z-index: 1;
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  left: 0px;
+  padding: 0px 140px;
+  background-color: white;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  nav {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    ul {
+      display: flex;
+      text-transform: uppercase;
+      font-size: 10px;
+      @extend %miniTitle;
+      &:first-child {
+        li {
+          margin-right: 60px;
+        }
+      }
+    }
+  }
+}
+
+.hero {
+  height: 100vh;
+  // width: 100%;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)),
+   url("https://images.unsplash.com/photo-1618222988376-ecf1706ee7ce?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=606&q=80");
+  background-size: cover;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  // padding: 0px;
+  margin: 0px $sideSpace;
+  margin-bottom: 80px;
+  h4 {
+    @extend %miniTitle;
+    margin-bottom: 30px;
+  }
+  h3 {
+    font-size: 48px;
+    width: 35%;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  a {
+    width: 10%;
+    background-color: white;
+    padding: 20px 0px;
+    text-align: center;
+    text-decoration: none;
+    color: black;
+    @extend %miniTitle;
+    font-size: 10px;
+    transition: color 0.3s linear, background 0.3s linear;
+    &:hover {
+      background-color: black;
+      color: white;
+    }
+  }
+}
+
+.under-hero {
+  height: 80vh;
+  display: flex;
+  width: 100%;
+  margin-bottom: 80px;
+  .under-hero__content {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: $bg;
+    .wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      h4 {
+        @extend %miniTitle;
+        margin-bottom: 30px;
+      }
+      h3 {
+        font-size: 36px;
+        text-align: center;
+        margin-bottom: 30px;
+      }
+      a {
+        border: 1px solid black;
+        padding: 20px;
+
+      }
+    }
+  }
+  img, 
+  div {
+    width: 50%;
+  }
+}
+
+.blog {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(3, 60vh);
+  margin-bottom: 80px;
+  .blog__post {
+    background-color: $bg;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    // grid-template-rows: 100px;
+    &:nth-child(even) {
+      img {
+        order: 1;
+      }
+    }
+    img {
+      width: 100%;
+      height: 100%;
+    }
+    .post__content {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      .post__date {
+        @extend %miniTitle;
+        margin-bottom: 70px;
+      }
+      h4 {
+        font-size: 32px;
+        margin-bottom: 40px;
+      }
+    }
+  }
+}
+
+.gallery {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(2, 410px);
+  .gallery__poster {
+    img {
+      max-width: 100%;
+      height: 100%;
+      transition: opacity 0.3s linear;
+      &:hover {
+        opacity: 0.5;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+.footer {
+  margin-top: 100px;
+  background-color: $bg;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  justify-content: space-between;
+  padding: 65px 0px;
+  .footer__column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    @extend %miniTitle;
+    width: 100%;
+    .column__title {
+      margin-bottom: 50px;
+      opacity: 0.5;
+      text-align: center;
+    }
+    ul {
+      margin-right: 30px;
+      text-align: center;
+      li {
+        margin-bottom: 10px;
+      }
+    }
+    &:nth-child(2) {
+      border-right: 1px solid black;
+      border-left: 1px solid black;
+    }
+  }
+}

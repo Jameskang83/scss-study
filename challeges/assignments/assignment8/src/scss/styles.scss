@@ -1,0 +1,216 @@
+@import url("https://fonts.googleapis.com/css2?family=B612+Mono&family=DM+Serif+Display:ital@1&display=swap");
+@import url("https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css");
+@import "_variables";
+
+* {
+  box-sizing: border-box;
+  text-transform: uppercase;
+}
+
+body {
+  font-family: 'DM Serif Display', serif, "B612 Mono", monospace;
+  width: 100%;
+  height: 100vh;
+  background-color: tomato;
+  border: 10px solid skyblue;
+}
+
+
+main {
+  display: grid;
+  grid-template-columns: 50px 1fr 50px;
+  grid-template-rows: 40px 1fr 40px;
+  border: $boarderGap solid tomato;
+  gap: 5px;
+  header { 
+    grid-column: span 4;
+    background-color: white;
+    display: flex;
+    overflow: hidden;
+    align-items: center;
+    white-space: nowrap;
+    p {
+      display: inline-block;
+      color: tomato;
+      font-size: $aniFontSize;
+      font-weight: 600;
+      margin-right: 25px;
+    }
+  }
+  .left__bar {
+    grid-column: 1 / 2;
+    .left__bar-nav {
+      height: 50vh;
+      background-color: tomato;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: space-evenly;
+      ul {
+        writing-mode: vertical-lr;
+        text-orientation: upright;
+        letter-spacing: -2;
+        font-size: 16px;
+        font-weight: 600;
+        color: white;
+        &:first-child {
+          font-size: 18px;
+          font-weight: 800;
+          border-top: 3px dotted white;
+          border-bottom: 3px dotted white;
+        }
+        &:nth-child(2) {
+          text-align: center;
+        }
+      } 
+    }
+    &:hover {
+      cursor: pointer;
+    }
+    .news__letter {
+      width: 100%;
+      height: 20vh;
+      background-color: white;
+      writing-mode: vertical-lr;
+      transform: rotate(180deg);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 18px;
+      font-weight: 700;
+      color: tomato;
+      border-radius: 20px;
+      margin-bottom: 10px;
+      &:hover {
+       background-color: black;
+       color: white; 
+       transition: background-color 1s linear;
+      }
+    }
+    .left__bar-sns {
+      height: 11vh;
+      background-color: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+      align-items: center;
+      color: tomato;
+      border-radius: 5px;
+    }
+  }
+  section {
+    position: relative;
+    .title {
+      position: absolute;
+      left: 515px;
+      top: 90px;
+      color: white;
+      text-align: center;
+      line-height: 1.2;
+      font-family: "B612 Mono";
+      h4 {
+        font-size: 50px;
+        font-weight: 500;
+      }
+      h2 {
+        font-size: 120px;
+        font-weight: 800;
+        text-shadow: 1px 1px 2px black, 0 0 1em skyblue, 0 0 0.2em skyblue;
+      }
+    }
+    grid-column: 2 / 3;
+    height: 83vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    .photo__left,
+    .photo__right {
+      overflow: hidden;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        background-position: center center;
+      }
+    }
+  }
+  .right__bar {
+    gap: 5px;
+    display: grid;
+    grid-template-rows: 1fr 1fr;
+      p {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        writing-mode: vertical-lr;
+        text-orientation: upright;
+        background-color: #F1E659;
+        letter-spacing: -2;
+        font-size: 15px;
+        font-weight: 600;
+        color: tomato;
+        border-radius: 5px;
+        i {
+          margin: 5px 0px;
+        }
+        &:hover {
+          cursor: pointer;
+          color: white;
+          background-color: skyblue;
+          transition: background-color 0.2s linear;
+        }  
+      }
+  }
+  footer {
+    grid-column: span 4;
+    background-color: white;
+    white-space: nowrap;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+    p {
+      display: inline-block;
+      color: tomato;
+      font-size: $aniFontSize;
+      font-weight: 600;
+      margin-right: 30px;
+    }
+  }
+}
+
+header p, 
+footer p {
+  animation: aniText 10s linear infinite;
+}
+
+
+@keyframes aniText {
+  from {
+    transform: translateX(0px);
+  }
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+.message {
+  position: absolute;
+  bottom: 40px;
+  right: 55px;
+  width: 70px;
+  height: 70px;
+  background-color: #FA6C3B;
+  border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: rgba(0, 0, 0, 0.15) 2.4px 2.4px 3.2px;
+  i {
+    font-size: 35px;
+    color: white;
+  }
+  &:hover {
+    transform: scale(1.3);
+    background-color: rgb(255, 62, 28);
+    transition: transform 0.1s linear;
+  }
+}
